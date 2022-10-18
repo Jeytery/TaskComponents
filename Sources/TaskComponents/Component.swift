@@ -20,6 +20,10 @@ public struct ComponentId {
     public let id: Int
     
     public static let none = ComponentId(id: -1)
+    
+    public init(id: Int) {
+        self.id = id 
+    }
 }
 
 public protocol ComponentViewControllable {
