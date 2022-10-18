@@ -3,4 +3,7 @@ public struct TaskComponents {
 
     public init() {
     }
+    
+    public func helloWorld() {
+    }
 }
