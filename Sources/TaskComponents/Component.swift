@@ -14,6 +14,14 @@ public struct ComponentInformation {
     public let icon: UIImage
     public let color: UIColor
     public let conflictedComponets: [ComponentId]?
+    
+    public init(name: String, description: String, icon: UIImage, color: UIColor, conflictedComponents: [ComponentId]?) {
+        self.name = name
+        self.description = description
+        self.icon = icon
+        self.color = color
+        self.conflictedComponets = conflictedComponents
+    }
 }
 
 public struct ComponentId {
@@ -22,7 +30,7 @@ public struct ComponentId {
     public static let none = ComponentId(id: -1)
     
     public init(id: Int) {
-        self.id = id 
+        self.id = id
     }
 }
 
