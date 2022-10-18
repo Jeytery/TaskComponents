@@ -1,3 +1,3 @@
 # TaskComponents
 
-A description of this package.
+Component core for ProjectQ
