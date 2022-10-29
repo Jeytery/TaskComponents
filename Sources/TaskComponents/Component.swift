@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public struct ComponentInformation {
+public struct ComponentInformation: Hashable {
     public let name: String
     public let description: String
     public let icon: UIImage
@@ -24,7 +24,7 @@ public struct ComponentInformation {
     }
 }
 
-public struct ComponentId {
+public struct ComponentId: Hashable {
     public let id: Int
     
     public static let none = ComponentId(id: -1)
@@ -38,7 +38,7 @@ public protocol ComponentViewControllable {
     func configure(data: Data)
 }
 
-public protocol Componentable {
+public protocol Componentable: Hashable {
     var information: ComponentInformation { get }
     var id: ComponentId { get }
     
