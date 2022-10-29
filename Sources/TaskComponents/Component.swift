@@ -38,7 +38,7 @@ public protocol ComponentViewControllable {
     func configure(data: Data)
 }
 
-public protocol Componentable: Hashable {
+public protocol Componentable {
     var information: ComponentInformation { get }
     var id: ComponentId { get }
     
