@@ -40,6 +40,7 @@ public struct ComponentId: Hashable {
 }
 
 public protocol ComponentViewControllable {
+    var didFinishWork: ((Componentable) -> Void)? { get set }
     func configure(data: Data)
 }
 
