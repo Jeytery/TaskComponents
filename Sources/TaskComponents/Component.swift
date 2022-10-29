@@ -22,6 +22,8 @@ public struct ComponentInformation: Hashable {
         self.color = color
         self.conflictedComponets = conflictedComponents
     }
+    
+    static let empty = ComponentInformation(name: "", description: "", icon: UIImage(), color: .red, conflictedComponents: nil)
 }
 
 public struct ComponentId: Hashable {
@@ -38,7 +40,7 @@ public protocol ComponentViewControllable {
     func configure(data: Data)
 }
 
-public protocol Componentable: Hashable {
+public protocol Componentable {
     var information: ComponentInformation { get }
     var id: ComponentId { get }
     
