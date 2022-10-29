@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 
-public struct ComponentInformation: Hashable {
+public struct ComponentInformation: Hashable, Identifiable {
+    
+    public let id = UUID()
+    
     public let name: String
     public let description: String
     public let icon: UIImage
