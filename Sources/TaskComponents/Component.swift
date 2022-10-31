@@ -44,7 +44,7 @@ public protocol ComponentViewControllable {
     func configure(data: Data)
 }
 
-public protocol Componentable {
+public protocol Componentable: Codable {
     var information: ComponentInformation { get }
     var id: ComponentId { get }
     
