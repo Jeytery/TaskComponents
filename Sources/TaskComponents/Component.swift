@@ -8,28 +8,23 @@
 import Foundation
 import UIKit
 
-public struct ComponentInformation: Hashable, Identifiable {
+public struct ComponentInformation: Hashable, Identifiable, Codable {
     
-    public let id = UUID()
-    
+    public var id = UUID()
     public let name: String
     public let description: String
-    public let icon: UIImage
-    public let color: UIColor
     public let conflictedComponets: [ComponentId]?
     
-    public init(name: String, description: String, icon: UIImage, color: UIColor, conflictedComponents: [ComponentId]?) {
+    public init(name: String, description: String, conflictedComponents: [ComponentId]?) {
         self.name = name
         self.description = description
-        self.icon = icon
-        self.color = color
         self.conflictedComponets = conflictedComponents
     }
     
-    static let empty = ComponentInformation(name: "", description: "", icon: UIImage(), color: .red, conflictedComponents: nil)
+    static let empty = ComponentInformation(name: "", description: "", conflictedComponents: nil)
 }
 
-public struct ComponentId: Hashable {
+public struct ComponentId: Hashable, Codable {
     public let id: Int
     
     public static let none = ComponentId(id: -1)
