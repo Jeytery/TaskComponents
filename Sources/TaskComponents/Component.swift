@@ -8,23 +8,29 @@
 import Foundation
 import UIKit
 
-public struct ComponentInformation: Hashable, Identifiable, Codable {
+public struct ComponentInformation: Hashable, Identifiable {
     
-    public var id = UUID()
+    public let id = UUID()
     public let name: String
     public let description: String
+    
+    public let icon: UIImage
+    public let color: UIColor
+    
     public let conflictedComponets: [ComponentId]?
     
-    public init(name: String, description: String, conflictedComponents: [ComponentId]?) {
+    public init(name: String, description: String, icon: UIImage, color: UIColor, conflictedComponents: [ComponentId]?) {
         self.name = name
         self.description = description
+        self.icon = icon
+        self.color = color
         self.conflictedComponets = conflictedComponents
     }
     
-    static let empty = ComponentInformation(name: "", description: "", conflictedComponents: nil)
+    static let empty = ComponentInformation(name: "", description: "", icon: UIImage(), color: .red, conflictedComponents: nil)
 }
 
-public struct ComponentId: Hashable, Codable {
+public struct ComponentId: Hashable {
     public let id: Int
     
     public static let none = ComponentId(id: -1)
@@ -39,7 +45,7 @@ public protocol ComponentViewControllable {
     func configure(data: Data)
 }
 
-public protocol Componentable: Codable {
+public protocol Componentable {
     var information: ComponentInformation { get }
     var id: ComponentId { get }
     
